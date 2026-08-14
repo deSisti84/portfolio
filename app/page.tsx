@@ -30,9 +30,6 @@ export default function Home() {
   return (
     <main className="portfolio-shell">
       <header className="site-header">
-        <a className="monogram" href="#projects" aria-label="Milos Dimitrijevic — home">
-          MD<span>.</span>
-        </a>
         <p className="eyebrow">IT systems · Security · Documentation</p>
       </header>
 
@@ -43,14 +40,16 @@ export default function Home() {
             Milos
             <span>Dimitrijevic</span>
           </h1>
-          <p className="intro-copy">
-            Practical systems, clear instructions, and secure infrastructure —
-            explored through four focused projects.
-          </p>
         </div>
 
         <div className="tile-grid" id="projects" aria-label="Portfolio projects">
-          <div className="decorative-block" aria-hidden="true" />
+          <div className="decorative-block decor-one" aria-hidden="true" />
+          <div className="decorative-block decor-two" aria-hidden="true" />
+          <div className="decorative-block decor-three" aria-hidden="true" />
+          <div className="decorative-block decor-four" aria-hidden="true" />
+          <div className="decorative-block decor-five" aria-hidden="true" />
+          <div className="decorative-block decor-six" aria-hidden="true" />
+          <div className="decorative-block decor-seven" aria-hidden="true" />
           {projects.map((project) => (
             <button
               className={`project-tile ${project.className}`}
@@ -68,7 +67,6 @@ export default function Home() {
 
       <footer>
         <span>Portfolio</span>
-        <span>Scroll to explore</span>
       </footer>
 
       {activeProject && (

@@ -47,13 +47,11 @@ body.modal-open { overflow: hidden; }
 .site-header, footer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   position: relative;
   z-index: 2;
 }
 .site-header { border-bottom: 1px solid rgba(246, 241, 247, .24); padding-bottom: 18px; }
-.monogram { color: var(--cream); text-decoration: none; font-size: 1.35rem; font-weight: 750; letter-spacing: -.06em; }
-.monogram span { color: #c991f4; }
 .eyebrow, .section-label, footer { font-family: var(--font-geist-mono), monospace; text-transform: uppercase; letter-spacing: .13em; }
 .eyebrow { font-size: .69rem; margin: 0; opacity: .67; }
 
@@ -70,17 +68,22 @@ body.modal-open { overflow: hidden; }
 .section-label { margin: 0 0 18px; color: #cda5eb; font-size: .68rem; font-weight: 600; }
 h1 { margin: 0; font-size: clamp(4rem, 7vw, 8rem); line-height: .82; letter-spacing: -.085em; font-weight: 680; }
 h1 span { display: block; color: #cda5eb; }
-.intro-copy { max-width: 430px; margin: 34px 0 0; color: rgba(246, 241, 247, .68); font-size: clamp(.95rem, 1.2vw, 1.12rem); line-height: 1.65; }
-
 .tile-grid {
   position: relative;
   width: min(100%, 720px);
-  aspect-ratio: 1.28;
+  aspect-ratio: 1.25;
   display: grid;
-  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  grid-template: repeat(4, 1fr) / repeat(5, 1fr);
   filter: drop-shadow(0 25px 38px rgba(10, 3, 15, .18));
 }
-.decorative-block { grid-area: 2 / 2; background: rgba(154, 91, 209, .28); }
+.decorative-block { pointer-events: none; }
+.decor-one { grid-area: 1 / 2; background: rgba(118, 65, 145, .48); }
+.decor-two { grid-area: 1 / 4; background: rgba(205, 165, 235, .28); }
+.decor-three { grid-area: 2 / 3; background: rgba(111, 55, 140, .68); }
+.decor-four { grid-area: 2 / 5; background: rgba(226, 204, 241, .2); }
+.decor-five { grid-area: 3 / 2; background: rgba(174, 122, 210, .34); }
+.decor-six { grid-area: 3 / 4; background: rgba(91, 41, 117, .72); }
+.decor-seven { grid-area: 4 / 3; background: rgba(215, 183, 236, .24); }
 .project-tile {
   border: 0;
   border-radius: 0;
@@ -104,16 +107,16 @@ h1 span { display: block; color: #cda5eb; }
   z-index: 5;
   outline: none;
 }
-.tile-security { grid-area: 1 / 2; }
-.tile-knowledge { grid-area: 2 / 1; background: var(--lavender); }
-.tile-openvpn { grid-area: 2 / 3; background: #cab0e0; }
-.tile-glpi { grid-area: 3 / 2; }
+.tile-security { grid-area: 1 / 3; }
+.tile-knowledge { grid-area: 2 / 2; background: var(--lavender); }
+.tile-openvpn { grid-area: 2 / 4; background: #cab0e0; }
+.tile-glpi { grid-area: 3 / 3; }
 .tile-index { font-family: var(--font-geist-mono), monospace; font-size: .62rem; letter-spacing: .14em; opacity: .58; }
 .tile-title { font-size: clamp(1rem, 1.65vw, 1.55rem); line-height: 1.05; letter-spacing: -.035em; font-weight: 590; max-width: 90%; overflow-wrap: anywhere; }
 .tile-action { align-self: flex-end; font-size: 1.25rem; transition: transform .28s ease; }
 .project-tile:hover .tile-action, .project-tile:focus-visible .tile-action { transform: translate(3px, -3px); }
 
-footer { border-top: 1px solid rgba(246, 241, 247, .24); padding-top: 18px; font-size: .6rem; opacity: .55; }
+footer { justify-content: flex-start; border-top: 1px solid rgba(246, 241, 247, .24); padding-top: 18px; font-size: .6rem; opacity: .55; }
 
 .modal-backdrop {
   position: fixed;
@@ -163,7 +166,6 @@ footer { border-top: 1px solid rgba(246, 241, 247, .24); padding-top: 18px; font
 
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; min-height: auto; gap: 54px; padding-top: 72px; }
-  .intro-copy { max-width: 560px; }
   .tile-grid { justify-self: center; width: min(100%, 650px); }
 }
 @media (max-width: 600px) {
@@ -177,7 +179,6 @@ footer { border-top: 1px solid rgba(246, 241, 247, .24); padding-top: 18px; font
   .project-tile { border-radius: 3px; padding: 20px; }
   .project-tile:hover, .project-tile:focus-visible { transform: translateY(-5px); }
   .tile-title { font-size: 1.35rem; }
-  footer span:last-child { display: none; }
   .modal-backdrop { padding: 14px; }
   .project-modal { border-radius: 20px; padding: 20px; }
   .video-placeholder { border-radius: 14px; }
