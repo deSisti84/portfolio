@@ -1,6 +1,6 @@
 # Milos Dimitrijevic — Portfolio
 
-A responsive, single-page portfolio with four interactive project tiles:
+A responsive, single-page portfolio with four interactive project tiles. The root `index.html`, `styles.css`, and `script.js` files are ready for GitHub Pages with no build step.
 
 - Security trainings
 - Knowledgebases
@@ -9,7 +9,16 @@ A responsive, single-page portfolio with four interactive project tiles:
 
 Each tile changes colour and lifts on hover, then opens a centered video-ready modal when clicked. The dialog also closes from the close button, backdrop, or `Escape` key.
 
-## Run locally
+## Publish with GitHub Pages
+
+1. Upload the repository files to GitHub.
+2. Open the repository's **Settings → Pages**.
+3. Under **Build and deployment**, choose **Deploy from a branch**.
+4. Select your main branch and the **/(root)** folder, then save.
+
+GitHub will display the public portfolio URL after deployment finishes. Opening the repository itself displays this README; the live page is the separate URL shown under Settings → Pages.
+
+## Optional development version
 
 Install Node.js 22 or newer, then run:
 
