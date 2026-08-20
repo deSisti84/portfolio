@@ -75,13 +75,12 @@ h1 span { display: block; color: #cda5eb; }
   filter: drop-shadow(0 25px 38px rgba(10, 3, 15, .18));
 }
 .decorative-block { pointer-events: none; }
-.decor-one { grid-area: 1 / 2; background: rgba(118, 65, 145, .48); }
+.decor-one { grid-area: 1 / 1; background: rgba(118, 65, 145, .48); }
 .decor-two { grid-area: 1 / 4; background: rgba(205, 165, 235, .28); }
 .decor-three { grid-area: 2 / 3; background: rgba(111, 55, 140, .68); }
 .decor-four { grid-area: 2 / 5; background: rgba(226, 204, 241, .2); }
-.decor-five { grid-area: 3 / 2; background: rgba(174, 122, 210, .34); }
-.decor-six { grid-area: 3 / 4; background: rgba(91, 41, 117, .72); }
-.decor-seven { grid-area: 4 / 3; background: rgba(215, 183, 236, .24); }
+.decor-five { grid-area: 3 / 1; background: rgba(174, 122, 210, .34); }
+.decor-six { grid-area: 4 / 4; background: rgba(91, 41, 117, .72); }
 .project-tile {
   border: 0;
   border-radius: 0;

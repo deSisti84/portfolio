@@ -49,7 +49,6 @@ export default function Home() {
           <div className="decorative-block decor-four" aria-hidden="true" />
           <div className="decorative-block decor-five" aria-hidden="true" />
           <div className="decorative-block decor-six" aria-hidden="true" />
-          <div className="decorative-block decor-seven" aria-hidden="true" />
           {projects.map((project) => (
             <button
               className={`project-tile ${project.className}`}
