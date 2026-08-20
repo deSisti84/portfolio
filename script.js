@@ -1,37 +1,45 @@
-const modal = document.querySelector("#project-modal");
-const modalTitle = document.querySelector("#modal-title");
-const closeButton = document.querySelector("[data-modal-close]");
+const previewModal = document.querySelector("#project-modal");
+const previewTitle = document.querySelector("#modal-title");
+let activeModal = null;
 let triggerButton = null;
 
-function openModal(project, trigger) {
+function openModal(modal, trigger) {
   triggerButton = trigger;
-  modalTitle.textContent = project;
+  activeModal = modal;
   modal.hidden = false;
   document.body.classList.add("modal-open");
-  closeButton.focus();
+  modal.querySelector("[data-modal-close]")?.focus();
 }
 
 function closeModal() {
-  if (modal.hidden) return;
-  modal.hidden = true;
+  if (!activeModal) return;
+  activeModal.hidden = true;
   document.body.classList.remove("modal-open");
   triggerButton?.focus();
+  activeModal = null;
   triggerButton = null;
 }
 
 document.querySelectorAll(".project-tile").forEach((tile) => {
-  tile.addEventListener("click", () => openModal(tile.dataset.project, tile));
+  tile.addEventListener("click", () => {
+    if (tile.dataset.modalTarget === "cv-modal") {
+      openModal(document.querySelector("#cv-modal"), tile);
+      return;
+    }
+    previewTitle.textContent = tile.dataset.project;
+    openModal(previewModal, tile);
+  });
 });
 
-modal.addEventListener("click", (event) => {
-  const clickedCloseButton = event.target.closest("[data-modal-close]");
-  const clickedOverlay = event.target === modal;
-
-  if (clickedCloseButton || clickedOverlay) {
-    event.preventDefault();
-    closeModal();
-  }
+document.querySelectorAll(".modal-backdrop").forEach((modal) => {
+  modal.addEventListener("click", (event) => {
+    if (event.target.closest("[data-modal-close]") || event.target === modal) {
+      event.preventDefault();
+      closeModal();
+    }
+  });
 });
+
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && !modal.hidden) closeModal();
+  if (event.key === "Escape") closeModal();
 });

@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="IT systems, security training, knowledgebases, OpenVPN, and GLPI projects by Milos Dimitrijevic.">
     <title>Milos Dimitrijevic — Portfolio</title>
-    <link rel="stylesheet" href="styles.css?v=7">
-    <script src="script.js?v=3" defer></script>
+    <link rel="stylesheet" href="styles.css?v=8">
+    <script src="script.js?v=8" defer></script>
   </head>
   <body>
     <main class="portfolio-shell">
@@ -24,8 +24,10 @@
           <div class="decorative-block decor-two" aria-hidden="true"></div>
           <div class="decorative-block decor-three" aria-hidden="true"></div>
           <div class="decorative-block decor-four" aria-hidden="true"></div>
-          <div class="decorative-block decor-five" aria-hidden="true"></div>
           <div class="decorative-block decor-six" aria-hidden="true"></div>
+          <button class="project-tile tile-cv" data-modal-target="cv-modal" aria-label="Open curriculum vitae">
+            <span class="tile-index">05</span><span class="tile-title">Curriculum vitae</span><span class="tile-action" aria-hidden="true">↗</span>
+          </button>
           <button class="project-tile tile-security" data-project="Security trainings" aria-label="Open Security trainings preview">
             <span class="tile-index">01</span><span class="tile-title">Security trainings</span><span class="tile-action" aria-hidden="true">↗</span>
           </button>
@@ -54,6 +56,42 @@
           <span class="play-button" aria-hidden="true">▶</span>
           <p>Video preview coming soon</p>
           <small>Your project video can be added here later.</small>
+        </div>
+      </section>
+    </div>
+
+    <div class="modal-backdrop cv-backdrop" id="cv-modal" role="presentation" hidden>
+      <section class="project-modal cv-modal-panel" role="dialog" aria-modal="true" aria-labelledby="cv-title">
+        <button class="close-button cv-close" type="button" data-modal-close aria-label="Close curriculum vitae">×</button>
+        <div class="cv-layout">
+          <aside class="cv-sidebar">
+            <h2 id="cv-title">Contact</h2>
+            <div class="cv-contact">
+              <p><span>Mobile</span><a href="tel:+35677165227">+356 77165227</a></p>
+              <p><span>LinkedIn</span><a href="https://www.linkedin.com/in/milos-dimitrijevic/" target="_blank" rel="noreferrer">linkedin.com/in/milos-dimitrijevic</a></p>
+              <p><span>Email</span><a href="mailto:milosdimitrijevic84@hotmail.com">milosdimitrijevic84@hotmail.com</a></p>
+            </div>
+            <h2>Education</h2>
+            <div class="cv-entry compact">
+              <h3>Information Systems Management</h3><p>MQF/EQF LVL 6</p><p>Union University, Serbia</p><p>2016–2018</p>
+            </div>
+            <div class="cv-entry compact">
+              <h3>Internet Technologies</h3><p>ICT College, Serbia</p><p>2010–2016</p>
+            </div>
+            <h2>Skills</h2>
+            <ul class="cv-list"><li>Office 365</li><li>Azure</li><li>GSuite</li><li>Hardware/Software</li><li>CRM</li><li>LAN/WAN Support</li><li>Linux</li><li>Basic coding</li><li>PS</li></ul>
+          </aside>
+          <article class="cv-main">
+            <p class="cv-kicker">Milos Dimitrijevic</p>
+            <h2>Work experience</h2>
+            <div class="cv-entry"><h3>ISO</h3><strong>Energy Casino/LV Bet, Gzira, Malta</strong><p>2023–Present</p><p>Added to previous responsibilities</p><ul class="cv-list"><li>MGA Key function</li><li>Small scale pentesting</li><li>Risk assessments and management</li><li>Defining and maintaining policies and documentation</li><li>Internal trainings (preparation and execution)</li></ul></div>
+            <div class="cv-entry"><h3>IT Officer</h3><strong>Energy Casino/LV Bet, Gzira, Malta</strong><p>2019–2023</p><ul class="cv-list"><li>Technical user support</li><li>Hardware and Software maintenance</li><li>Azure Administration (AAD, Intune, Exchange, MS 365)</li><li>Server administration (Dell)</li><li>GSuite Administration</li><li>VMWare, ProxMox</li></ul></div>
+            <div class="cv-entry"><h3>Customer Production Part Approval Process, Quality Engineering</h3><strong>Methode Electronic, Birkirkara, Malta</strong><p>2017–2019</p><ul class="cv-list"><li>Preparation of PPAP packages and PSW</li><li>Support PFMEA and DFMEA activities ensuring that design and manufacturing issues are identified and risk mitigated</li><li>Audit and release manufacturing lines and procedures</li><li>Preparing quality documentation (APQP, QPS/QCP)</li><li>Structural problem-solving (5why, Ishikawa, Pareto, 8D)</li></ul></div>
+            <div class="cv-entry"><h3>Quality Technician, Quality Engineering</h3><strong>Methode Electronic, Birkirkara, Malta</strong><p>2015–2017</p><ul class="cv-list"><li>Developing quality assurance plans by conducting hazard analyses</li><li>Preparing quality documentation and reports</li><li>Data gathering and analysis for internal use and updating quality instructions as needed</li><li>Conducting preliminary measurements and coordinating with other departments on correction and/or preventive maintenance</li><li>Continuous improvement and structured problem solving</li></ul></div>
+            <div class="cv-entry"><h3>Quality Assurance</h3><strong>Rhea Software – Usablenet, Belgrade, Serbia</strong><p>2014–2015</p><ul class="cv-list"><li>Development and execution of end-to-end test plans</li><li>Manual testing on mobile web and apps (iOS, Android)</li><li>Team lead for assistive page testing</li></ul></div>
+            <div class="cv-entry"><h3>Coaxial network maintenance coordinator</h3><strong>SBB/United Group, Belgrade, Serbia</strong><p>2014</p><ul class="cv-list"><li>Network supervision</li><li>Planning preventive network maintenance</li><li>Detection of problems, dispatching field crew</li><li>Review of quality and pace of work</li><li>Configuration of modems and digital receivers</li></ul></div>
+            <div class="cv-entry"><h3>Technical Support (Level 1 and 2) for cable and ADSL internet</h3><strong>SBB/United Group, Belgrade, Serbia</strong><p>2008–2010</p><ul class="cv-list"><li>Fast problem-solving either by navigating customers through setup or remotely accessing equipment</li><li>Troubleshooting and maintenance of LAN, WAN and video networks</li><li>LAN network management</li><li>Detection of problems, dispatching field crew</li><li>Answering customer emails and monitoring forum discussions</li><li>Receiving inbound calls from customers</li></ul></div>
+          </article>
         </div>
       </section>
     </div>
