@@ -57,7 +57,7 @@ body.modal-open { overflow: hidden; }
   flex: 1;
   min-height: 700px;
   display: grid;
-  grid-template-columns: minmax(300px, .8fr) minmax(600px, 1.45fr);
+  grid-template-columns: minmax(360px, .65fr) minmax(780px, 1.35fr);
   align-items: center;
   gap: clamp(40px, 7vw, 110px);
   padding: 54px 0 44px;
@@ -68,7 +68,7 @@ h1 { margin: 0; font-size: clamp(4rem, 7vw, 8rem); line-height: .82; letter-spac
 h1 span { display: block; color: #cda5eb; }
 .tile-grid {
   position: relative;
-  width: min(100%, 720px);
+  width: min(100%, 900px);
   aspect-ratio: 1.25;
   display: grid;
   grid-template: repeat(4, 1fr) / repeat(5, 1fr);
@@ -88,7 +88,7 @@ h1 span { display: block; color: #cda5eb; }
   background: var(--lavender-light);
   color: var(--ink);
   text-align: left;
-  padding: clamp(18px, 2.2vw, 30px);
+  padding: clamp(14px, 1.2vw, 18px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -110,7 +110,7 @@ h1 span { display: block; color: #cda5eb; }
 .tile-openvpn { grid-area: 2 / 4; background: #cab0e0; }
 .tile-glpi { grid-area: 3 / 3; }
 .tile-index { font-family: monospace; font-size: .62rem; letter-spacing: .14em; opacity: .58; }
-.tile-title { font-size: clamp(1rem, 1.65vw, 1.55rem); line-height: 1.05; letter-spacing: -.035em; font-weight: 590; max-width: 90%; overflow-wrap: anywhere; }
+.tile-title { font-size: clamp(.9rem, 1.2vw, 1.2rem); line-height: 1.08; letter-spacing: -.025em; font-weight: 590; max-width: 100%; white-space: nowrap; overflow-wrap: normal; word-break: keep-all; hyphens: none; }
 .tile-action { align-self: flex-end; font-size: 1.25rem; transition: transform .28s ease; }
 .project-tile:hover .tile-action, .project-tile:focus-visible .tile-action { transform: translate(3px, -3px); }
 
@@ -165,9 +165,9 @@ footer { justify-content: flex-start; border-top: 1px solid rgba(246, 241, 247, 
 @keyframes fade-in { from { opacity: 0; } }
 @keyframes modal-in { from { opacity: 0; transform: translateY(18px) scale(.97); } }
 
-@media (max-width: 900px) {
+@media (max-width: 1280px) {
   .hero { grid-template-columns: 1fr; min-height: auto; gap: 54px; padding-top: 72px; }
-  .tile-grid { justify-self: center; width: min(100%, 650px); }
+  .tile-grid { justify-self: center; width: min(100%, 750px); }
 }
 @media (max-width: 600px) {
   .portfolio-shell { padding: 20px 18px; }
