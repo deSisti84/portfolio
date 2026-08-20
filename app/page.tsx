@@ -73,7 +73,7 @@ export default function Home() {
         <div
           className="modal-backdrop"
           role="presentation"
-          onMouseDown={(event) => {
+          onClick={(event) => {
             if (event.target === event.currentTarget) setActiveProject(null);
           }}
         >
@@ -82,6 +82,7 @@ export default function Home() {
             role="dialog"
             aria-modal="true"
             aria-labelledby="modal-title"
+            onClick={(event) => event.stopPropagation()}
           >
             <div className="modal-heading">
               <div>
