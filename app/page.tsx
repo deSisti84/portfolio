@@ -35,7 +35,7 @@ export default function Home() {
 
       <section className="hero" aria-labelledby="portfolio-title">
         <div className="intro">
-          <p className="section-label">Selected work / 2026</p>
+          <p className="section-label">Interactive curriculum vitae</p>
           <h1 id="portfolio-title">
             Milos
             <span>Dimitrijevic</span>
