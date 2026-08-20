@@ -127,6 +127,9 @@ footer { justify-content: flex-start; border-top: 1px solid rgba(246, 241, 247, 
   backdrop-filter: blur(14px);
   animation: fade-in .22s ease both;
 }
+.modal-backdrop[hidden] {
+  display: none !important;
+}
 .project-modal {
   width: min(820px, 100%);
   border-radius: 26px;
