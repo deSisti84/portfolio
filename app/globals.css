@@ -197,7 +197,7 @@ footer { justify-content: flex-start; border-top: 1px solid rgba(246, 241, 247, 
   h1 { font-size: clamp(3.35rem, 17vw, 5rem); }
   .tile-grid { aspect-ratio: auto; grid-template: repeat(4, 150px) / 1fr; gap: 10px; filter: none; }
   .decorative-block { display: none; }
-  .tile-security, .tile-knowledge, .tile-openvpn, .tile-glpi, .tile-cv { grid-area: auto; }
+  .tile-security, .tile-knowledge, .tile-openvpn, .tile-glpi, .tile-cv { grid-area: auto !important; }
   .project-tile { border-radius: 3px; padding: 20px; }
   .project-tile:hover, .project-tile:focus-visible { transform: translateY(-5px); }
   .tile-title { font-size: 1.35rem; }
