@@ -78,7 +78,7 @@ h1 span { display: block; color: #cda5eb; }
 }
 .decorative-block { pointer-events: none; }
 .decor-two { grid-area: 1 / 4; background: rgba(205, 165, 235, .28); }
-.decor-three { grid-area: 2 / 3; background: rgba(111, 55, 140, .68); }
+.decor-three { grid-area: 3 / 1; background: rgba(111, 55, 140, .68); }
 .decor-four { grid-area: 2 / 5; background: rgba(226, 204, 241, .2); }
 .decor-six { grid-area: 4 / 4; background: rgba(91, 41, 117, .72); }
 .project-tile {
@@ -108,7 +108,7 @@ h1 span { display: block; color: #cda5eb; }
 .tile-knowledge { grid-area: 2 / 2; background: var(--lavender); }
 .tile-openvpn { grid-area: 2 / 4; background: #cab0e0; }
 .tile-glpi { grid-area: 3 / 3; }
-.tile-cv { grid-area: 3 / 1; background: #b991d5; }
+.tile-cv { grid-area: 2 / 3; background: #b991d5; }
 .tile-index { font-family: var(--font-geist-mono), monospace; font-size: .62rem; letter-spacing: .14em; opacity: .58; }
 .tile-title { font-size: clamp(.9rem, 1.2vw, 1.2rem); line-height: 1.08; letter-spacing: -.025em; font-weight: 590; max-width: 100%; white-space: nowrap; overflow-wrap: normal; word-break: keep-all; hyphens: none; }
 .tile-action { align-self: flex-end; font-size: 1.25rem; transition: transform .28s ease; }
