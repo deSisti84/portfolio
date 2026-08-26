@@ -34,6 +34,34 @@ function CVContent() {
   </div>;
 }
 
+const gallerySets = {
+  presentation: ["1.png", "2.png", "3.png", "4.png"].map(name => `/assets/security-training/presentation/${name}`),
+  training: ["Concl.png", "Mod.png", "Mod1.png", "Mod2.png", "Mod3.png", "Mod4.png", "Mod5.png", "Mod6.png"].map(name => `/assets/security-training/training/${name}`),
+};
+
+function SecurityGallery() {
+  const [folder, setFolder] = useState<keyof typeof gallerySets | null>(null);
+  const [imageIndex, setImageIndex] = useState(0);
+  const images = folder ? gallerySets[folder] : [];
+  const move = (direction: number) => setImageIndex(current => (current + direction + images.length) % images.length);
+
+  useEffect(() => {
+    if (!folder) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "ArrowLeft") move(-1);
+      if (event.key === "ArrowRight") move(1);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [folder, images.length]);
+
+  if (!folder) return <div className="security-gallery"><div className="gallery-folders">
+    {([['presentation', 'Presentation', '4 images'], ['training', 'Training', '8 images']] as const).map(([key, label, count]) => <button className={`folder-card folder-${key}`} type="button" key={key} onClick={() => { setFolder(key); setImageIndex(0); }}><span className="folder-stack" aria-hidden="true"><i /><i /><i /></span><span className="folder-shape" aria-hidden="true" /><strong>{label}</strong><small>{count}</small></button>)}
+  </div></div>;
+
+  return <div className="security-gallery"><div className="gallery-viewer"><div className="gallery-toolbar"><button type="button" onClick={() => setFolder(null)}>← Folders</button><span>{imageIndex + 1} / {images.length}</span></div><div className="gallery-stage"><button className="gallery-arrow gallery-prev" type="button" onClick={() => move(-1)} aria-label="Previous image">‹</button><img src={images[imageIndex]} alt={`Security training gallery image ${imageIndex + 1}`} /><button className="gallery-arrow gallery-next" type="button" onClick={() => move(1)} aria-label="Next image">›</button></div></div></div>;
+}
+
 export default function Home() {
   const [activeProject, setActiveProject] = useState<string | null>(null);
   const closeButton = useRef<HTMLButtonElement>(null);
@@ -127,7 +155,7 @@ export default function Home() {
                 ×
               </button>
             </div>}
-            {activeProject === "Curriculum vitae" ? <CVContent /> : <div className="video-placeholder">
+            {activeProject === "Curriculum vitae" ? <CVContent /> : activeProject === "Security trainings" ? <SecurityGallery /> : <div className="video-placeholder">
               <span className="play-button" aria-hidden="true">▶</span>
               <p>Video preview coming soon</p>
               <small>Your project video can be added here later.</small>
