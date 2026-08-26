@@ -161,7 +161,7 @@ footer { justify-content: flex-start; border-top: 1px solid rgba(246, 241, 247, 
 .video-placeholder p { margin: 18px 0 5px; font-size: 1rem; font-weight: 600; position: relative; }
 .video-placeholder small { opacity: .65; position: relative; }
 
-.security-gallery[hidden], .gallery-folders[hidden], .gallery-viewer[hidden], .cv-preview[hidden], .video-placeholder[hidden] { display: none !important; }
+.security-gallery[hidden], .gallery-folders[hidden], .gallery-viewer[hidden], .folder-card[hidden], .cv-preview[hidden], .video-placeholder[hidden] { display: none !important; }
 .security-gallery { min-height: 390px; }
 .gallery-folders.single-folder { grid-template-columns: minmax(230px, 320px); justify-content: center; }
 .gallery-folders { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }

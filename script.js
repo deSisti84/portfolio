@@ -12,7 +12,7 @@ const galleryCount = document.querySelector("[data-gallery-count]");
 const galleries = {
   presentation: ["1.png", "2.png", "3.png", "4.png"].map(name => `assets/security-training/presentation/${name}`),
   training: ["Concl.png", "Mod.png", "Mod1.png", "Mod2.png", "Mod3.png", "Mod4.png", "Mod5.png", "Mod6.png"].map(name => `assets/security-training/training/${name}`),
-  projects: ["TM.png", "Gl1.png", "In1.png", "In2.png"].map(name => `assets/projects-from-scratch/projects/${name}`),
+  projects: ["TM.png", "Gl1.png", "In1.png", "In2.png", "Instr.png", "page.png"].map(name => `assets/projects-from-scratch/projects/${name}`),
 };
 const cvImages = ["1.png", "2.png", "3.png", "4.png", "5.png"].map(name => `assets/curriculum-vitae/${name}`);
 let activeModal = null;
