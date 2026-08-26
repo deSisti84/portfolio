@@ -9,6 +9,7 @@ const galleryCount = document.querySelector("[data-gallery-count]");
 const galleries = {
   presentation: ["1.png", "2.png", "3.png", "4.png"].map(name => `assets/security-training/presentation/${name}`),
   training: ["Concl.png", "Mod.png", "Mod1.png", "Mod2.png", "Mod3.png", "Mod4.png", "Mod5.png", "Mod6.png"].map(name => `assets/security-training/training/${name}`),
+  projects: ["TM.png", "Gl1.png", "In1.png", "In2.png"].map(name => `assets/projects-from-scratch/projects/${name}`),
 };
 let activeModal = null;
 let triggerButton = null;
@@ -42,7 +43,7 @@ function showFolders() {
 
 function renderGalleryImage() {
   galleryImage.src = activeGallery[activeImageIndex];
-  galleryImage.alt = `Security training gallery image ${activeImageIndex + 1}`;
+  galleryImage.alt = `Project gallery image ${activeImageIndex + 1}`;
   galleryCount.textContent = `${activeImageIndex + 1} / ${activeGallery.length}`;
 }
 
@@ -67,9 +68,14 @@ document.querySelectorAll(".project-tile").forEach((tile) => {
       return;
     }
     previewTitle.textContent = tile.dataset.project;
-    const isSecurityGallery = tile.dataset.project === "Security trainings";
-    securityGallery.hidden = !isSecurityGallery;
-    videoPlaceholder.hidden = isSecurityGallery;
+    const isGalleryProject = tile.dataset.project === "Security trainings" || tile.dataset.project === "Projects from Scratch";
+    securityGallery.hidden = !isGalleryProject;
+    videoPlaceholder.hidden = isGalleryProject;
+    document.querySelectorAll("[data-gallery-folder]").forEach(folder => {
+      const isProjectsFolder = folder.dataset.galleryFolder === "projects";
+      folder.hidden = tile.dataset.project === "Projects from Scratch" ? !isProjectsFolder : isProjectsFolder;
+    });
+    galleryFolders.classList.toggle("single-folder", tile.dataset.project === "Projects from Scratch");
     showFolders();
     openModal(previewModal, tile);
   });
