@@ -9,16 +9,26 @@ const galleryFolders = document.querySelector("[data-gallery-folders]");
 const galleryViewer = document.querySelector("[data-gallery-viewer]");
 const galleryImage = document.querySelector("[data-gallery-image]");
 const galleryCount = document.querySelector("[data-gallery-count]");
+const galleryTitle = document.querySelector("[data-gallery-title]");
 const galleries = {
   presentation: ["1.png", "2.png", "3.png", "4.png"].map(name => `assets/security-training/presentation/${name}`),
   training: ["Concl.png", "Mod.png", "Mod1.png", "Mod2.png", "Mod3.png", "Mod4.png", "Mod5.png", "Mod6.png"].map(name => `assets/security-training/training/${name}`),
   projects: ["TM.png", "Gl1.png", "In1.png", "In2.png", "Instr.png", "page.png"].map(name => `assets/projects-from-scratch/projects/${name}`),
 };
 const cvImages = ["1.png", "2.png", "3.png", "4.png", "5.png"].map(name => `assets/curriculum-vitae/${name}`);
+const projectTitles = [
+  "TrendMicro deployment and management",
+  "GLPI full company inventory",
+  "Intune - Device control and OOBE",
+  "Intune - Scripting",
+  "In-house developed security training",
+  "Full user instructions page",
+];
 let activeModal = null;
 let triggerButton = null;
 let activeGallery = [];
 let activeImageIndex = 0;
+let activeGalleryName = "";
 let cvImageIndex = 0;
 
 function openModal(modal, trigger) {
@@ -45,19 +55,24 @@ function showFolders() {
   galleryFolders.hidden = false;
   galleryViewer.hidden = true;
   activeGallery = [];
+  activeGalleryName = "";
   activeImageIndex = 0;
+  galleryTitle.hidden = true;
 }
 
 function renderGalleryImage() {
   galleryImage.src = activeGallery[activeImageIndex];
   galleryImage.alt = `Project gallery image ${activeImageIndex + 1}`;
   galleryCount.textContent = `${activeImageIndex + 1} / ${activeGallery.length}`;
+  if (activeGalleryName === "projects") galleryTitle.textContent = projectTitles[activeImageIndex];
 }
 
 function openGallery(name) {
   activeGallery = galleries[name];
+  activeGalleryName = name;
   activeImageIndex = 0;
   galleryFolders.hidden = true;
+  galleryTitle.hidden = name !== "projects";
   galleryViewer.hidden = false;
   renderGalleryImage();
 }

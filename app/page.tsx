@@ -39,6 +39,7 @@ const gallerySets = {
   training: ["Concl.png", "Mod.png", "Mod1.png", "Mod2.png", "Mod3.png", "Mod4.png", "Mod5.png", "Mod6.png"].map(name => `/assets/security-training/training/${name}`),
   projects: ["TM.png", "Gl1.png", "In1.png", "In2.png", "Instr.png", "page.png"].map(name => `/assets/projects-from-scratch/projects/${name}`),
 };
+const projectTitles = ["TrendMicro deployment and management", "GLPI full company inventory", "Intune - Device control and OOBE", "Intune - Scripting", "In-house developed security training", "Full user instructions page"];
 
 function ProjectGallery({ type }: { type: "security" | "projects" }) {
   const folderOptions = type === "security" ? ([['presentation', 'Presentation', '4 images'], ['training', 'Training', '8 images']] as const) : ([['projects', 'Projects', '6 images']] as const);
@@ -61,7 +62,7 @@ function ProjectGallery({ type }: { type: "security" | "projects" }) {
     {folderOptions.map(([key, label, count]) => <button className={`folder-card folder-${key}`} type="button" key={key} onClick={() => { setFolder(key); setImageIndex(0); }}><span className="folder-stack" aria-hidden="true"><i /><i /><i /></span><span className="folder-shape" aria-hidden="true" /><strong>{label}</strong><small>{count}</small></button>)}
   </div></div>;
 
-  return <div className="security-gallery"><div className="gallery-viewer"><div className="gallery-toolbar"><button type="button" onClick={() => setFolder(null)}>← Folders</button><span>{imageIndex + 1} / {images.length}</span></div><div className="gallery-stage"><button className="gallery-arrow gallery-prev" type="button" onClick={() => move(-1)} aria-label="Previous image">‹</button><img src={images[imageIndex]} alt={`Project gallery image ${imageIndex + 1}`} /><button className="gallery-arrow gallery-next" type="button" onClick={() => move(1)} aria-label="Next image">›</button></div></div></div>;
+  return <div className="security-gallery">{type === "projects" && <p className="gallery-image-title">{projectTitles[imageIndex]}</p>}<div className="gallery-viewer"><div className="gallery-toolbar"><button type="button" onClick={() => setFolder(null)}>← Folders</button><span>{imageIndex + 1} / {images.length}</span></div><div className="gallery-stage"><button className="gallery-arrow gallery-prev" type="button" onClick={() => move(-1)} aria-label="Previous image">‹</button><img src={images[imageIndex]} alt={`Project gallery image ${imageIndex + 1}`} /><button className="gallery-arrow gallery-next" type="button" onClick={() => move(1)} aria-label="Next image">›</button></div></div></div>;
 }
 
 const cvImages = ["1.png", "2.png", "3.png", "4.png", "5.png"].map(name => `/assets/curriculum-vitae/${name}`);
