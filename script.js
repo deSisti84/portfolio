@@ -15,6 +15,7 @@ const galleries = {
   training: ["Concl.png", "Mod.png", "Mod1.png", "Mod2.png", "Mod3.png", "Mod4.png", "Mod5.png", "Mod6.png"].map(name => `assets/security-training/training/${name}`),
   projects: ["TM.png", "Gl1.png", "In1.png", "In2.png", "Instr.png", "page.png"].map(name => `assets/projects-from-scratch/projects/${name}`),
   migrations: ["As.png", "migration.png", "Sl.png"].map(name => `assets/migrations/${name}`),
+  knowledgebases: ["1.png", "2.png", "3.png"].map(name => `assets/knowledgebases/${name}`),
 };
 const cvImages = ["1.png", "2.png", "3.png", "4.png", "5.png"].map(name => `assets/curriculum-vitae/${name}`);
 const projectTitles = [
@@ -25,6 +26,12 @@ const projectTitles = [
   "In-house developed security training",
   "Full user instructions page",
 ];
+const knowledgebaseTitles = [
+  "Admin related documentation in-house developed",
+  "Audit related documentation",
+  "End user instructions",
+];
+const galleryTitles = { projects: projectTitles, knowledgebases: knowledgebaseTitles };
 let activeModal = null;
 let triggerButton = null;
 let activeGallery = [];
@@ -65,7 +72,7 @@ function renderGalleryImage() {
   galleryImage.src = activeGallery[activeImageIndex];
   galleryImage.alt = `Project gallery image ${activeImageIndex + 1}`;
   galleryCount.textContent = `${activeImageIndex + 1} / ${activeGallery.length}`;
-  if (activeGalleryName === "projects") galleryTitle.textContent = projectTitles[activeImageIndex];
+  if (galleryTitles[activeGalleryName]) galleryTitle.textContent = galleryTitles[activeGalleryName][activeImageIndex];
 }
 
 function openGallery(name) {
@@ -73,7 +80,7 @@ function openGallery(name) {
   activeGalleryName = name;
   activeImageIndex = 0;
   galleryFolders.hidden = true;
-  galleryTitle.hidden = name !== "projects";
+  galleryTitle.hidden = !galleryTitles[name];
   galleryViewer.hidden = false;
   renderGalleryImage();
 }
@@ -99,12 +106,12 @@ function changeCvImage(direction) {
 document.querySelectorAll(".project-tile").forEach((tile) => {
   tile.addEventListener("click", () => {
     previewTitle.textContent = tile.dataset.project;
-    const isGalleryProject = tile.dataset.project === "Security trainings" || tile.dataset.project === "Projects from Scratch" || tile.dataset.project === "Migrations";
+    const isGalleryProject = tile.dataset.project === "Security trainings" || tile.dataset.project === "Projects from Scratch" || tile.dataset.project === "Migrations" || tile.dataset.project === "Knowledgebases";
     const isCv = tile.dataset.project === "Curriculum vitae";
     securityGallery.hidden = !isGalleryProject;
     cvPreview.hidden = !isCv;
     videoPlaceholder.hidden = isGalleryProject || isCv;
-    const visibleFolders = tile.dataset.project === "Projects from Scratch" ? ["projects"] : tile.dataset.project === "Migrations" ? ["migrations"] : ["presentation", "training"];
+    const visibleFolders = tile.dataset.project === "Projects from Scratch" ? ["projects"] : tile.dataset.project === "Migrations" ? ["migrations"] : tile.dataset.project === "Knowledgebases" ? ["knowledgebases"] : ["presentation", "training"];
     document.querySelectorAll("[data-gallery-folder]").forEach(folder => { folder.hidden = !visibleFolders.includes(folder.dataset.galleryFolder); });
     galleryFolders.classList.toggle("single-folder", visibleFolders.length === 1);
     if (isCv) { cvImageIndex = 0; renderCvImage(); }

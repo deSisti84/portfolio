@@ -7,7 +7,7 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 
 export const metadata: Metadata = {
   title: "Milos Dimitrijevic — Portfolio",
-  description: "IT systems, security training, knowledgebases, OpenVPN, and GLPI projects by Milos Dimitrijevic.",
+  description: "IT systems, security training, knowledgebases, migrations, and projects built from scratch by Milos Dimitrijevic.",
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
 };
 
