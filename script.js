@@ -31,7 +31,9 @@ const knowledgebaseTitles = [
   "Audit related documentation",
   "End user instructions",
 ];
-const galleryTitles = { projects: projectTitles, knowledgebases: knowledgebaseTitles };
+const presentationTitles = Array(4).fill("Condensed version of security training provided to employees");
+const trainingTitles = Array(8).fill("Full security training tailor made from scratch replacing generic training academies and courses offered online.");
+const galleryTitles = { projects: projectTitles, knowledgebases: knowledgebaseTitles, presentation: presentationTitles, training: trainingTitles };
 let activeModal = null;
 let triggerButton = null;
 let activeGallery = [];

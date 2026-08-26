@@ -43,6 +43,8 @@ const gallerySets = {
 };
 const projectTitles = ["TrendMicro deployment and management", "GLPI full company inventory", "Intune - Device control and OOBE", "Intune - Scripting", "In-house developed security training", "Full user instructions page"];
 const knowledgebaseTitles = ["Admin related documentation in-house developed", "Audit related documentation", "End user instructions"];
+const presentationTitles = Array(4).fill("Condensed version of security training provided to employees");
+const trainingTitles = Array(8).fill("Full security training tailor made from scratch replacing generic training academies and courses offered online.");
 
 function ProjectGallery({ type }: { type: "security" | "projects" | "migrations" | "knowledgebases" }) {
   const folderOptions = type === "security" ? ([['presentation', 'Presentation', '4 images'], ['training', 'Training', '8 images']] as const) : type === "projects" ? ([['projects', 'Projects', '6 images']] as const) : type === "migrations" ? ([['migrations', 'Migrations', '3 images']] as const) : ([['knowledgebases', 'Knowledgebases', '3 images']] as const);
@@ -65,7 +67,7 @@ function ProjectGallery({ type }: { type: "security" | "projects" | "migrations"
     {folderOptions.map(([key, label, count]) => <button className={`folder-card folder-${key}`} type="button" key={key} onClick={() => { setFolder(key); setImageIndex(0); }}><span className="folder-stack" aria-hidden="true"><i /><i /><i /></span><span className="folder-shape" aria-hidden="true" /><strong>{label}</strong><small>{count}</small></button>)}
   </div></div>;
 
-  const titles = type === "projects" ? projectTitles : type === "knowledgebases" ? knowledgebaseTitles : null;
+  const titles = type === "projects" ? projectTitles : type === "knowledgebases" ? knowledgebaseTitles : folder === "presentation" ? presentationTitles : folder === "training" ? trainingTitles : null;
   return <div className="security-gallery">{titles && <p className="gallery-image-title">{titles[imageIndex]}</p>}<div className="gallery-viewer"><div className="gallery-toolbar"><button type="button" onClick={() => setFolder(null)}>← Folders</button><span>{imageIndex + 1} / {images.length}</span></div><div className="gallery-stage"><button className="gallery-arrow gallery-prev" type="button" onClick={() => move(-1)} aria-label="Previous image">‹</button><img src={images[imageIndex]} alt={`Project gallery image ${imageIndex + 1}`} /><button className="gallery-arrow gallery-next" type="button" onClick={() => move(1)} aria-label="Next image">›</button></div></div></div>;
 }
 
