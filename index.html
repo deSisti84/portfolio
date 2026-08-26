@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="IT systems, security training, knowledgebases, OpenVPN, and projects built from scratch by Milos Dimitrijevic.">
     <title>Milos Dimitrijevic — Portfolio</title>
-    <link rel="stylesheet" href="styles.css?v=12">
-    <script src="script.js?v=12" defer></script>
+    <link rel="stylesheet" href="styles.css?v=13">
+    <script src="script.js?v=13" defer></script>
   </head>
   <body>
     <main class="portfolio-shell">
@@ -25,7 +25,7 @@
           <div class="decorative-block decor-three" style="grid-area: 3 / 1" aria-hidden="true"></div>
           <div class="decorative-block decor-four" aria-hidden="true"></div>
           <div class="decorative-block decor-six" aria-hidden="true"></div>
-          <button class="project-tile tile-cv" style="grid-area: 2 / 3" data-modal-target="cv-modal" aria-label="Open curriculum vitae">
+          <button class="project-tile tile-cv" style="grid-area: 2 / 3" data-project="Curriculum vitae" aria-label="Open curriculum vitae">
             <span class="tile-index">05</span><span class="tile-title">Curriculum vitae</span><span class="tile-action" aria-hidden="true">↗</span>
           </button>
           <button class="project-tile tile-security" data-project="Security trainings" aria-label="Open Security trainings preview">
@@ -38,7 +38,7 @@
             <span class="tile-index">03</span><span class="tile-title">OpenVPN</span><span class="tile-action" aria-hidden="true">↗</span>
           </button>
           <button class="project-tile tile-glpi" data-project="Projects from Scratch" aria-label="Open Projects from Scratch preview">
-            <span class="tile-index">04</span><span class="tile-title">Projects from Scratch</span><span class="tile-action" aria-hidden="true">↗</span>
+            <span class="tile-index">04</span><span class="tile-title">Projects from<br>Scratch</span><span class="tile-action" aria-hidden="true">↗</span>
           </button>
         </div>
       </section>
@@ -78,6 +78,32 @@
               <button class="gallery-arrow gallery-next" type="button" data-gallery-next aria-label="Next image">›</button>
             </div>
           </div>
+        </div>
+        <div class="cv-preview" id="cv-preview" hidden>
+          <section class="cv-preview-section cv-education" aria-labelledby="cv-education-title">
+            <p class="section-label">Curriculum vitae</p>
+            <h3 id="cv-education-title">Education</h3>
+            <div class="cv-education-grid">
+              <article><h4>Information Systems Management</h4><p>MQF/EQF LVL 6</p><p>Union University, Serbia</p><p>2016–2018</p></article>
+              <article><h4>Internet Technologies</h4><p>ICT College, Serbia</p><p>2010–2016</p></article>
+            </div>
+          </section>
+          <div class="gallery-viewer cv-image-viewer">
+            <div class="gallery-toolbar"><span>Work experience</span><span data-cv-count>1 / 5</span></div>
+            <div class="gallery-stage">
+              <button class="gallery-arrow gallery-prev" type="button" data-cv-prev aria-label="Previous CV image">‹</button>
+              <img data-cv-image src="assets/curriculum-vitae/1.png" alt="Curriculum vitae work experience 1">
+              <button class="gallery-arrow gallery-next" type="button" data-cv-next aria-label="Next CV image">›</button>
+            </div>
+          </div>
+          <section class="cv-preview-section cv-contact-block" aria-labelledby="cv-contact-title">
+            <h3 id="cv-contact-title">Contact</h3>
+            <div class="cv-contact-grid">
+              <p><strong>Mobile</strong><a href="tel:+35677165227">+356 77165227</a></p>
+              <p><strong>LinkedIn</strong><a href="https://www.linkedin.com/in/milos-dimitrijevic/" target="_blank" rel="noreferrer">linkedin.com/in/milos-dimitrijevic</a></p>
+              <p><strong>Email</strong><a href="mailto:milosdimitrijevic84@hotmail.com">milosdimitrijevic84@hotmail.com</a></p>
+            </div>
+          </section>
         </div>
         <div class="video-placeholder" id="video-placeholder">
           <span class="play-button" aria-hidden="true">▶</span>

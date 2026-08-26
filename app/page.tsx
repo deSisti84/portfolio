@@ -64,6 +64,34 @@ function ProjectGallery({ type }: { type: "security" | "projects" }) {
   return <div className="security-gallery"><div className="gallery-viewer"><div className="gallery-toolbar"><button type="button" onClick={() => setFolder(null)}>← Folders</button><span>{imageIndex + 1} / {images.length}</span></div><div className="gallery-stage"><button className="gallery-arrow gallery-prev" type="button" onClick={() => move(-1)} aria-label="Previous image">‹</button><img src={images[imageIndex]} alt={`Project gallery image ${imageIndex + 1}`} /><button className="gallery-arrow gallery-next" type="button" onClick={() => move(1)} aria-label="Next image">›</button></div></div></div>;
 }
 
+const cvImages = ["1.png", "2.png", "3.png", "4.png", "5.png"].map(name => `/assets/curriculum-vitae/${name}`);
+
+function CVPreview() {
+  const [imageIndex, setImageIndex] = useState(0);
+  const move = (direction: number) => setImageIndex(current => (current + direction + cvImages.length) % cvImages.length);
+
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "ArrowLeft") move(-1);
+      if (event.key === "ArrowRight") move(1);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
+
+  return <div className="cv-preview">
+    <section className="cv-preview-section cv-education" aria-labelledby="cv-education-title">
+      <p className="section-label">Curriculum vitae</p><h3 id="cv-education-title">Education</h3>
+      <div className="cv-education-grid">
+        <article><h4>Information Systems Management</h4><p>MQF/EQF LVL 6</p><p>Union University, Serbia</p><p>2016–2018</p></article>
+        <article><h4>Internet Technologies</h4><p>ICT College, Serbia</p><p>2010–2016</p></article>
+      </div>
+    </section>
+    <div className="gallery-viewer cv-image-viewer"><div className="gallery-toolbar"><span>Work experience</span><span>{imageIndex + 1} / {cvImages.length}</span></div><div className="gallery-stage"><button className="gallery-arrow gallery-prev" type="button" onClick={() => move(-1)} aria-label="Previous CV image">‹</button><img src={cvImages[imageIndex]} alt={`Curriculum vitae work experience ${imageIndex + 1}`} /><button className="gallery-arrow gallery-next" type="button" onClick={() => move(1)} aria-label="Next CV image">›</button></div></div>
+    <section className="cv-preview-section cv-contact-block" aria-labelledby="cv-contact-title"><h3 id="cv-contact-title">Contact</h3><div className="cv-contact-grid"><p><strong>Mobile</strong><a href="tel:+35677165227">+356 77165227</a></p><p><strong>LinkedIn</strong><a href="https://www.linkedin.com/in/milos-dimitrijevic/" target="_blank" rel="noreferrer">linkedin.com/in/milos-dimitrijevic</a></p><p><strong>Email</strong><a href="mailto:milosdimitrijevic84@hotmail.com">milosdimitrijevic84@hotmail.com</a></p></div></section>
+  </div>;
+}
+
 export default function Home() {
   const [activeProject, setActiveProject] = useState<string | null>(null);
   const closeButton = useRef<HTMLButtonElement>(null);
@@ -111,7 +139,7 @@ export default function Home() {
               aria-label={`Open ${project.title} preview`}
             >
               <span className="tile-index">{project.index}</span>
-              <span className="tile-title">{project.title}</span>
+              <span className="tile-title">{project.title === "Projects from Scratch" ? <>Projects from<br />Scratch</> : project.title}</span>
               <span className="tile-action" aria-hidden="true">↗</span>
             </button>
           ))}
@@ -124,26 +152,20 @@ export default function Home() {
 
       {activeProject && (
         <div
-          className={`modal-backdrop ${activeProject === "Curriculum vitae" ? "cv-backdrop" : ""}`}
+          className="modal-backdrop"
           role="presentation"
           onClick={(event) => {
             if (event.target === event.currentTarget) setActiveProject(null);
           }}
         >
           <section
-            className={`project-modal ${activeProject === "Curriculum vitae" ? "cv-modal-panel" : ""}`}
+            className="project-modal"
             role="dialog"
             aria-modal="true"
-            aria-labelledby={activeProject === "Curriculum vitae" ? undefined : "modal-title"}
-            aria-label={activeProject === "Curriculum vitae" ? "Curriculum vitae" : undefined}
+            aria-labelledby="modal-title"
             onClick={(event) => event.stopPropagation()}
           >
-            {activeProject === "Curriculum vitae" ? <button
-              className="close-button cv-close"
-              ref={closeButton}
-              onClick={() => setActiveProject(null)}
-              aria-label="Close curriculum vitae"
-            >×</button> : <div className="modal-heading">
+            <div className="modal-heading">
               <div>
                 <p className="section-label">Project preview</p>
                 <h2 id="modal-title">{activeProject}</h2>
@@ -156,8 +178,8 @@ export default function Home() {
               >
                 ×
               </button>
-            </div>}
-            {activeProject === "Curriculum vitae" ? <CVContent /> : activeProject === "Security trainings" ? <ProjectGallery type="security" /> : activeProject === "Projects from Scratch" ? <ProjectGallery type="projects" /> : <div className="video-placeholder">
+            </div>
+            {activeProject === "Curriculum vitae" ? <CVPreview /> : activeProject === "Security trainings" ? <ProjectGallery type="security" /> : activeProject === "Projects from Scratch" ? <ProjectGallery type="projects" /> : <div className="video-placeholder">
               <span className="play-button" aria-hidden="true">▶</span>
               <p>Video preview coming soon</p>
               <small>Your project video can be added here later.</small>
