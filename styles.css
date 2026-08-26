@@ -105,7 +105,7 @@ h1 span { display: block; color: #cda5eb; }
 .tile-knowledge { grid-area: 3 / 3; background: var(--lavender); }
 .tile-openvpn { grid-area: 2 / 4; background: #cab0e0; }
 .tile-glpi { grid-area: 3 / 1; }
-.tile-cv { grid-area: 2 / 2; background: #b991d5; }
+.tile-cv { grid-area: 2 / 2 !important; background: #b991d5; }
 .tile-index { font-family: monospace; font-size: .62rem; letter-spacing: .14em; opacity: .58; }
 .tile-title { font-size: clamp(.9rem, 1.2vw, 1.2rem); line-height: 1.08; letter-spacing: -.025em; font-weight: 590; max-width: 100%; white-space: nowrap; overflow-wrap: normal; word-break: keep-all; hyphens: none; }
 .tile-action { align-self: flex-end; font-size: 1.25rem; transition: transform .28s ease; }
