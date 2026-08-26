@@ -128,7 +128,7 @@ export default function Home() {
 
         <div className="tile-grid" id="projects" aria-label="Portfolio projects">
           <div className="decorative-block decor-two" aria-hidden="true" />
-          <div className="decorative-block decor-three" style={{ gridArea: "3 / 1" }} aria-hidden="true" />
+          <div className="decorative-block decor-three" aria-hidden="true" />
           <div className="decorative-block decor-four" aria-hidden="true" />
           <div className="decorative-block decor-six" aria-hidden="true" />
           {projects.map((project) => (
