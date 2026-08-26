@@ -131,11 +131,9 @@ export default function Home() {
           <div className="decorative-block decor-two" aria-hidden="true" />
           <div className="decorative-block decor-three" aria-hidden="true" />
           <div className="decorative-block decor-four" aria-hidden="true" />
-          <div className="decorative-block decor-six" aria-hidden="true" />
           {projects.map((project) => (
             <button
               className={`project-tile ${project.className}`}
-              style={project.title === "Curriculum vitae" ? { gridArea: "2 / 3" } : undefined}
               key={project.title}
               onClick={() => setActiveProject(project.title)}
               aria-label={`Open ${project.title} preview`}
