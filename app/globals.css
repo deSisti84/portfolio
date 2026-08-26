@@ -80,7 +80,7 @@ h1 span { display: block; color: #cda5eb; }
 .decor-two { grid-area: 1 / 3; background: rgba(205, 165, 235, .28); }
 .decor-three { grid-area: 3 / 3; background: rgba(111, 55, 140, .68); }
 .decor-four { grid-area: 2 / 4; background: rgba(226, 204, 241, .2); }
-.decor-six { grid-area: 4 / 4; background: rgba(91, 41, 117, .72); }
+.decor-six { grid-area: 2 / 2; background: rgba(91, 41, 117, .72); }
 .project-tile {
   border: 0;
   border-radius: 0;
@@ -105,7 +105,7 @@ h1 span { display: block; color: #cda5eb; }
   outline: none;
 }
 .tile-security { grid-area: 1 / 4; }
-.tile-knowledge { grid-area: 2 / 2; background: var(--lavender); }
+.tile-knowledge { grid-area: 4 / 4; background: var(--lavender); }
 .tile-openvpn { grid-area: 2 / 5; background: #cab0e0; }
 .tile-glpi { grid-area: 3 / 1; }
 .tile-cv { grid-area: 2 / 3; background: #b991d5; }

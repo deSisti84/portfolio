@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 const projects = [
   { title: "Security trainings", index: "01", className: "tile-security" },
   { title: "Knowledgebases", index: "02", className: "tile-knowledge" },
-  { title: "OpenVPN", index: "03", className: "tile-openvpn" },
+  { title: "Migrations", index: "03", className: "tile-openvpn" },
   { title: "Projects from Scratch", index: "04", className: "tile-glpi" },
   { title: "Curriculum vitae", index: "05", className: "tile-cv" },
 ];
@@ -38,11 +38,12 @@ const gallerySets = {
   presentation: ["1.png", "2.png", "3.png", "4.png"].map(name => `/assets/security-training/presentation/${name}`),
   training: ["Concl.png", "Mod.png", "Mod1.png", "Mod2.png", "Mod3.png", "Mod4.png", "Mod5.png", "Mod6.png"].map(name => `/assets/security-training/training/${name}`),
   projects: ["TM.png", "Gl1.png", "In1.png", "In2.png", "Instr.png", "page.png"].map(name => `/assets/projects-from-scratch/projects/${name}`),
+  migrations: ["As.png", "migration.png", "Sl.png"].map(name => `/assets/migrations/${name}`),
 };
 const projectTitles = ["TrendMicro deployment and management", "GLPI full company inventory", "Intune - Device control and OOBE", "Intune - Scripting", "In-house developed security training", "Full user instructions page"];
 
-function ProjectGallery({ type }: { type: "security" | "projects" }) {
-  const folderOptions = type === "security" ? ([['presentation', 'Presentation', '4 images'], ['training', 'Training', '8 images']] as const) : ([['projects', 'Projects', '6 images']] as const);
+function ProjectGallery({ type }: { type: "security" | "projects" | "migrations" }) {
+  const folderOptions = type === "security" ? ([['presentation', 'Presentation', '4 images'], ['training', 'Training', '8 images']] as const) : type === "projects" ? ([['projects', 'Projects', '6 images']] as const) : ([['migrations', 'Migrations', '3 images']] as const);
   const [folder, setFolder] = useState<keyof typeof gallerySets | null>(null);
   const [imageIndex, setImageIndex] = useState(0);
   const images = folder ? gallerySets[folder] : [];
@@ -180,7 +181,7 @@ export default function Home() {
                 ×
               </button>
             </div>
-            {activeProject === "Curriculum vitae" ? <CVPreview /> : activeProject === "Security trainings" ? <ProjectGallery type="security" /> : activeProject === "Projects from Scratch" ? <ProjectGallery type="projects" /> : <div className="video-placeholder">
+            {activeProject === "Curriculum vitae" ? <CVPreview /> : activeProject === "Security trainings" ? <ProjectGallery type="security" /> : activeProject === "Projects from Scratch" ? <ProjectGallery type="projects" /> : activeProject === "Migrations" ? <ProjectGallery type="migrations" /> : <div className="video-placeholder">
               <span className="play-button" aria-hidden="true">▶</span>
               <p>Video preview coming soon</p>
               <small>Your project video can be added here later.</small>
